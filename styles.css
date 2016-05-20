@@ -1,0 +1,80 @@
+.navbar-bkgrd{
+  background-color: grey;
+  height: 40px;
+}
+
+.brand{
+  text-align: center;
+  color: white;
+  line-height: 40px;
+}
+.brand:hover, .brand:visited, .brand:link{
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-btn-outer{
+  margin: 0px;
+}
+.navbar-btn-outer-left{
+  padding: 5px 5px 5px 10px !important;
+}
+.navbar-btn-outer-middle{
+  padding: 5px 5px 5px 5px !important;
+}
+.navbar-btn-outer-right{
+  padding: 5px 10px 5px 5px !important;
+}
+
+.navbar-btn-inner{
+  background-color: lightgrey;
+  line-height: 30px;
+}
+
+.copyright{
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+  text-align: center;
+  font-size: 7pt;
+  color: grey;
+}
+
+.chartHolder{
+  fill: none;
+}
+
+.chartOutline{ 
+  fill: lightgrey;
+  stroke: black;
+  stroke-width: 1;
+}
+
+.bar{
+  fill: blue;
+}
+
+.bar:hover{
+  fill: lightblue;
+}
+
+.label{
+  fill: black;
+}
+
+.axis text {
+  font: 10px sans-serif;
+  fill: black;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.btn-data{
+  width: 200px;
+  margin-top: 10px;
+}

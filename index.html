@@ -1,0 +1,50 @@
+<!doctype html>
+<html ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>BMB Visualizer</title>
+        
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="vendors/bootstrap.min.css">
+        <script src="vendors/jquery.min.js"></script>
+        <script src="vendors/bootstrap.min.js"></script>
+        <script src="vendors/lodash.min.js"></script>
+        <script src="vendors/angular.min.js"></script>
+        <script src="vendors/angular-route.js"></script>
+        <script src="vendors/d3.js"></script>
+        
+        <script src="app.js"></script>
+        <script src="routes.js"></script>
+        <script src="config.js"></script>
+        <script src="controllers/mainCtrl.js"></script>
+        <script src="controllers/teamCtrl.js"></script>
+        <script src="controllers/teammateCtrl.js"></script>
+        <script src="controllers/datasetCtrl.js"></script>
+        <script src="services/utils.js"></script>
+    </head>
+    <body ng-controller="MainCtrl as main">
+        <div class="container-fluid">
+            <div class="row navbar-bkgrd">
+                <a href="#/" class="brand col-sm-3 col-xs-12">
+                    BioMarker Visualizer 
+                 </a>
+                  <a href="#/about" class="btn btn-default col-sm-3 col-xs-12">
+                    About 
+                 </a>
+                  <a href="#/team" class="btn btn-default col-sm-3 col-xs-12">
+                    Team 
+                 </a>
+                  <a href="#/contact" class="btn btn-default col-sm-3 col-xs-12">
+                    Contact 
+                 </a>
+            </div>
+            <div ng-view></div>
+            <div class="row copyright">
+                <div class="col-xs-12">
+                Created 2016 by SJS
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

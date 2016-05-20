@@ -1,0 +1,7 @@
+Home
+
+<p ng-repeat="dataset in main.datasets">
+  <a ng-href="#/dataset/{{dataset.id}}" class='btn btn-default' ng-click="main.setDataset(dataset)">
+    {{dataset.depository}} -- {{dataset.description}}
+  </a>
+</p>

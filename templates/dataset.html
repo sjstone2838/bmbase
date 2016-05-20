@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-sm-3 col-xs-12">
+    <h3> {{DatasetCtrl.description}}</h3>
+    <h4> {{DatasetCtrl.depository}}</h4>
+    <h5> Fields </h5>
+    <div ng-repeat= "field in DatasetCtrl.fields | filter: {graphicType: 'chartable'} ">
+      <p class="btn btn-default btn-data" ng-click="DatasetCtrl.selectField(field.name)"> {{field.properName}} </p>
+    </div>
+    <hr>
+    <div ng-repeat= "field in DatasetCtrl.fields ">
+      <p class="btn btn-primary btn-data"> {{field.properName}} -- {{field.data_type}} </p>
+    </div>
+  </div>
+
+  <div class="col-sm-9 col-xs-12">
+    <svg class="chartHolder" width="800" height="400">
+      <rect  width="800" height="400" x="0" y="0">
+      </rect>
+    </svg>
+  </div>
+</div>
