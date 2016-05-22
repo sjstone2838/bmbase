@@ -78,7 +78,7 @@ angular.module('app').factory("Utils", function UtilsFactory(){
         enrollment: 'chartable',
       }
     },
-  ]
+  ];
 
   return {
     getFieldInfo: function(){
@@ -94,11 +94,11 @@ angular.module('app').factory("Utils", function UtilsFactory(){
         properString += word[0].toUpperCase();
         properString += word.slice(1,word.length).toLowerCase();
         if (i != (words.length-1)){
-          properString += " "
+          properString += " ";
         } 
       });
       return properString;
     }
-  }
+  };
 
-})
+});

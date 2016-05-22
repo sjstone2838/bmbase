@@ -1,7 +1,9 @@
 (function() {  
   function MainCtrl (ENV, $http, Utils) {
     var vm = this;
-    var datasetIds = Utils.getFieldInfo().map(function(d){return d.id});
+    var datasetIds = Utils.getFieldInfo().map(function(d){
+      return d.id;
+    });
 
     $http({
       method: 'GET',
@@ -10,7 +12,7 @@
     .then(function(response){
       vm.datasets = response.data.data.filter(function (dataset){
         return datasetIds.indexOf(dataset.id) != -1;
-      })
+      });
     });
   }
 

@@ -59,7 +59,7 @@
         .attr('y', topOffset)
         .attr('width', width)
         .attr('height', height)
-        .classed('chartOutline', true)
+        .classed('chartOutline', true);
 
       barHeight = (height - ((vm.data.length + 1) * gutter)) / vm.data.length;
       
@@ -72,14 +72,17 @@
         .data(vm.data)
         .enter()
         .append('g')
-        .attr('transform', function(d,i){return "translate(" + leftOffset + "," + (yScale(i) + topOffset + gutter) + ")"})
-      ;
+        .attr('transform', function(d,i){
+          return "translate(" + leftOffset + "," + (yScale(i) + topOffset + gutter) + ")";
+        });
 
-      var datasetName = _.findKey(selectedFieldInfo, function (value){return value == 'name'});
+      var datasetName = _.findKey(selectedFieldInfo, function (value){
+        return value == 'name';
+      });
       var descriptionVars = [];
        _.filter(selectedFieldInfo,function(v,k){
         if (v == 'description'){
-          descriptionVars.push(k)
+          descriptionVars.push(k);
         }
       });
 
@@ -89,10 +92,10 @@
         .attr('width',0)
         // add click-label
         .on('click',function(d,i){
-          var text = ""
+          var text = "";
           text += '<strong>'+Utils.proper(datasetName)+':</strong> ' + d[datasetName] + '<br>';
           descriptionVars.forEach(function(descriptor,i){
-            text += ('<strong>'+Utils.proper(descriptor) + ":</strong> " + d[descriptor] + "<br>")
+            text += ('<strong>'+Utils.proper(descriptor) + ":</strong> " + d[descriptor] + "<br>");
           });
           // TODO: refactor jQuery to Angular?
           $('#dataDetail')
@@ -101,8 +104,8 @@
             .css('top',event.pageY)
             .css('left',event.pageX)
             .find('.detailLabel')
-            .html(text)
-        })
+            .html(text);
+        });
 
       // append axis-labels
       bar.append('text')
@@ -119,7 +122,7 @@
 
       // TODO: use of  * .725 is a hack, replace
       bar.append('path')
-        .attr('d',"M "+ (-leftOffset) +"," + (barHeight + gutter / 2) + " L"+ (totalWidth *.725)+"," + (barHeight + gutter / 2) + " Z");
+        .attr('d',"M "+ (-leftOffset) +"," + (barHeight + gutter / 2) + " L"+ (totalWidth * 0.725)+"," + (barHeight + gutter / 2) + " Z");
 
       bar.append('text')
        .classed('value',true)
@@ -128,9 +131,9 @@
       d3.selectAll('.chartHolder')
         .append("g")
         .attr('transform', function(){
-          return "translate(" + leftOffset + "," + topOffset + ")"
+          return "translate(" + leftOffset + "," + topOffset + ")";
         })
-        .attr("class", "x-axis axis")
+        .attr("class", "x-axis axis");
 
       vm.loading = false; 
     });
@@ -141,17 +144,21 @@
       vm.summaryStatistics = true;
       fieldname = field; 
       vm.fieldName = Utils.proper(fieldname);
-      var fieldArray = vm.data.map(function(d){return Number(d[fieldname])});
+      var fieldArray = vm.data.map(function(d){
+        return Number(d[fieldname]);
+      });
 
       vm.fieldCount = fieldArray.length;
       vm.fieldAverage = _.reduce(fieldArray, function(sum,n){
-        return sum + n
+        return sum + n;
       }, 0) / vm.data.length;
       vm.fieldMax = d3.max(fieldArray);
       vm.fieldMin = d3.min(fieldArray);
 
       var xScale = d3.scale.linear()
-        .domain([0, d3.max(vm.data.map(function(d){return Number(d[fieldname])}))])
+        .domain([0, d3.max(vm.data.map(function(d){
+          return Number(d[fieldname]);
+        }))])
         .range([0,width - 40]);
 
        var xAxis = d3.svg.axis()
@@ -159,21 +166,31 @@
         .orient("top");
 
       var colorScale = d3.scale.linear()
-        .domain([0, d3.max(vm.data.map(function(d){return Number(d[fieldname])}))])
+        .domain([0, d3.max(vm.data.map(function(d){
+          return Number(d[fieldname]);
+        }))])
         .range(['lightgreen','darkblue','blue','purple']);
 
       bar.selectAll('.bar')
         .transition()
         .duration(dur *3)
-        .attr('width', function (d){return xScale(Number(d[fieldname]))})
-        .attr('fill',function(d,i){return colorScale(Number(d[fieldname]))})
+        .attr('width', function (d){
+          return xScale(Number(d[fieldname]));
+        })
+        .attr('fill',function(d,i){
+          return colorScale(Number(d[fieldname]));
+        });
 
       d3.selectAll('.value')
         // http://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript
-        .text(function (d){return Number(d[fieldname]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")})
-        .attr('x', function (d){return xScale(Number(d[fieldname])) + 10 })
+        .text(function (d){
+          return Number(d[fieldname]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        })
+        .attr('x', function (d){
+          return xScale(Number(d[fieldname])) + 10 ;
+        })
         .attr('y', (barHeight + gutter) / 2 )
-        .classed('label',true)
+        .classed('label',true);
 
       d3.selectAll('.x-axis')
         .call(xAxis);
@@ -181,7 +198,7 @@
 
     vm.closeDetailLabel = function(){
       $('#dataDetail').css("opacity", 0.0).css('z-index',-1);
-    }
+    };
 
     // Bar Sorting
     var sortOrder = true;
@@ -199,7 +216,7 @@
         .transition()
         .duration(dur)
         .attr('transform', function (d, i) {
-            return "translate(" + leftOffset + "," + (yScale(i) + topOffset + gutter) + ")"
+            return "translate(" + leftOffset + "," + (yScale(i) + topOffset + gutter) + ")";
         });
     };
   }
