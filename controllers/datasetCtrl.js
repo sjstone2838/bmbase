@@ -97,6 +97,7 @@
           // TODO: refactor jQuery to Angular?
           $('#dataDetail')
             .css("opacity", 0.90)
+            .css('z-index', 1)
             .css('top',event.pageY)
             .css('left',event.pageX)
             .find('.detailLabel')
@@ -179,7 +180,7 @@
     };
 
     vm.closeDetailLabel = function(){
-      $('#dataDetail').css("opacity", 0.0);
+      $('#dataDetail').css("opacity", 0.0).css('z-index',-1);
     }
 
     // Bar Sorting
