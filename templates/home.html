@@ -1,7 +1,11 @@
-Home
-
-<p ng-repeat="dataset in main.datasets">
-  <a ng-href="#/dataset/{{dataset.id}}" class='btn btn-default' ng-click="main.setDataset(dataset)">
-    {{dataset.depository}} -- {{dataset.description}}
-  </a>
-</p>
+<div class="row">
+  <div class="col-sm-offset-3 col-sm-6 col-xs-12">
+    <h2> Choose a dataset to visualize </h2>
+     
+     <div style="text-align:center;">
+      <a ng-repeat="dataset in main.datasets" ng-href="#/dataset/{{dataset.id}}" class='btn btn-primary' style="margin: 10px; padding: 10px; font-size: 16pt;">
+        {{dataset.description}}
+      </a>
+    </div>
+  </div>
+</div>

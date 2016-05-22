@@ -1,21 +1,34 @@
 <div class="row">
   <div class="col-sm-3 col-xs-12">
-    <h3> {{DatasetCtrl.description}}</h3>
-    <h4> {{DatasetCtrl.depository}}</h4>
-    <h5> Fields </h5>
+    <h2> {{DatasetCtrl.description}}</h2>
+    <h4> Chartable Data </h4>
     <div ng-repeat= "field in DatasetCtrl.fields | filter: {graphicType: 'chartable'} ">
       <p class="btn btn-default btn-data" ng-click="DatasetCtrl.selectField(field.name)"> {{field.properName}} </p>
     </div>
-    <hr>
-    <div ng-repeat= "field in DatasetCtrl.fields ">
-      <p class="btn btn-primary btn-data"> {{field.properName}} -- {{field.data_type}} </p>
+    <div ng-if="DatasetCtrl.summaryStatistics">
+      <div class= "btn btn-primary btn-data" ng-click="DatasetCtrl.sortBars()"> Sort </div>
+      <div class="summary">
+        <div> <strong> Variable:</strong> {{DatasetCtrl.fieldName}}</div>
+        <div> <strong> Count:</strong> {{DatasetCtrl.fieldCount | number: 0}}</div>
+        <div> <strong> Average: </strong>{{DatasetCtrl.fieldAverage | number: 1}}</div>
+        <div> <strong> Maximum: </strong>{{DatasetCtrl.fieldMax | number: 0}}</div>
+        <div> <strong> Mininum: </strong>{{DatasetCtrl.fieldMin | number: 0}}</div>
+      </div>
     </div>
   </div>
 
   <div class="col-sm-9 col-xs-12">
-    <svg class="chartHolder" width="800" height="400">
-      <rect  width="800" height="400" x="0" y="0">
+    <div ng-show="DatasetCtrl.loading" style="text-align:center;">
+        <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+    </div>
+    <svg class="chartHolder" ng-attr-width="{{DatasetCtrl.totalWidth}}" ng-attr-height="{{DatasetCtrl.totalHeight}}">
+      <rect  ng-attr-width="{{DatasetCtrl.totalWidth}}" ng-attr-height="{{DatasetCtrl.totalHeight}}" x="0" y="0">
       </rect>
     </svg>
   </div>
+</div>
+
+<div id="dataDetail">
+  <div class='detailLabel'></div>
+  <div class="btn-close" ng-click="DatasetCtrl.closeDetailLabel()"> X </div>  
 </div>

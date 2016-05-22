@@ -1,34 +1,20 @@
+h2, h4 {
+  text-align: center;
+}
+
 .navbar-bkgrd{
   background-color: grey;
-  height: 40px;
 }
 
 .brand{
   text-align: center;
   color: white;
   line-height: 40px;
+  font-size: 20pt;
 }
 .brand:hover, .brand:visited, .brand:link{
   color: white;
   text-decoration: none;
-}
-
-.navbar-btn-outer{
-  margin: 0px;
-}
-.navbar-btn-outer-left{
-  padding: 5px 5px 5px 10px !important;
-}
-.navbar-btn-outer-middle{
-  padding: 5px 5px 5px 5px !important;
-}
-.navbar-btn-outer-right{
-  padding: 5px 10px 5px 5px !important;
-}
-
-.navbar-btn-inner{
-  background-color: lightgrey;
-  line-height: 30px;
 }
 
 .copyright{
@@ -45,13 +31,13 @@
 }
 
 .chartOutline{ 
-  fill: lightgrey;
-  stroke: black;
+  fill: #e0e0eb;
+  stroke: grey;
   stroke-width: 1;
 }
 
 .bar{
-  fill: blue;
+  cursor: pointer;
 }
 
 .bar:hover{
@@ -75,6 +61,57 @@
 }
 
 .btn-data{
-  width: 200px;
-  margin-top: 10px;
+  width: 100%;
+  margin-bottom: 10px !important;
+}
+
+path{
+  stroke: lightgrey;
+  stroke-weight: 1;
+}
+
+.clickLabelRow{
+  fill: grey;
+}
+
+#dataDetail{
+  position: absolute;
+  text-align: left;
+  font-size: 10pt;
+  color: black;
+  background-color: white;
+  padding: 10px 20px 10px 10px;
+  opacity: 0.0;
+  width: 400px;
+}
+
+.btn-close{
+  position:absolute;
+  top: 3px;
+  right: 6px;
+  cursor: pointer;
+}
+
+.summary{
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  padding: 10px;
+}
+
+.glyphicon-refresh-animate {
+  margin-top: 100px; 
+  font-size: 50pt;
+  color: lightgrey;
+    -animation: spin 1.7s infinite linear;
+    -webkit-animation: spin2 1.7s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
 }

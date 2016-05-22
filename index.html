@@ -26,23 +26,27 @@
     <body ng-controller="MainCtrl as main">
         <div class="container-fluid">
             <div class="row navbar-bkgrd">
-                <a href="#/" class="brand col-sm-3 col-xs-12">
-                    BioMarker Visualizer 
-                 </a>
-                  <a href="#/about" class="btn btn-default col-sm-3 col-xs-12">
-                    About 
-                 </a>
-                  <a href="#/team" class="btn btn-default col-sm-3 col-xs-12">
-                    Team 
-                 </a>
-                  <a href="#/contact" class="btn btn-default col-sm-3 col-xs-12">
-                    Contact 
-                 </a>
+                <div style="display: inline-block; margin: 5px">
+                    <a href="#/" class="brand">
+                        BioMarker Visualizer 
+                    </a>
+                </div>
+                <div  style="float: right; margin: 8px;">
+                    <a href="#/about" class="btn btn-default">
+                        <span class="glyphicon glyphicon-th-list"></span>
+                    </a>
+                    <a href="#/team" class="btn btn-default">
+                       <span class="glyphicon glyphicon-user"></span>
+                    </a>
+                    <a href="#/contact" class="btn btn-default">
+                        <span class="glyphicon glyphicon-envelope"></span>
+                    </a>
+                </div>
             </div>
             <div ng-view></div>
             <div class="row copyright">
                 <div class="col-xs-12">
-                Created 2016 by SJS
+                Created 2016
                 </div>
             </div>
         </div>
