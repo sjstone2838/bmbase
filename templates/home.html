@@ -3,7 +3,7 @@
     <h2> Choose a dataset to visualize </h2>
      
      <div style="text-align:center;">
-      <a ng-repeat="dataset in main.datasets" ng-href="#/dataset/{{dataset.id}}" class='btn btn-primary' style="margin: 10px; padding: 10px; font-size: 16pt;">
+      <a ng-repeat="dataset in main.datasets" ng-href="#/dataset/{{dataset.id}}" class='btn btn-primary' style="margin: 10px; padding: 10px; font-size: 16pt;" id="{{dataset.description}}">
         {{dataset.description}}
       </a>
     </div>

@@ -98,7 +98,12 @@ angular.module('app').factory("Utils", function UtilsFactory(){
         } 
       });
       return properString;
-    }
+    },
+
+    hyphenate: function (string){
+      // regex matches all spaces with "g" global modifer (vs. first space)
+      return string.replace(/ /g,"-");
+    },
   };
 
 });

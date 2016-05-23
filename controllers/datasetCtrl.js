@@ -18,6 +18,9 @@
 
     vm.loading = true;
     vm.totalWidth = totalWidth;
+    vm.hyphenate = function(string){
+      return Utils.hyphenate(string);
+    };
 
     // Dataset description and depository
     $http({
@@ -90,6 +93,9 @@
         .classed('bar',true)
         .attr('height', barHeight)
         .attr('width',0)
+        .attr('id', function(d){
+          return d[datasetName] +"-value";
+        })
         // add click-label
         .on('click',function(d,i){
           var text = "";
@@ -126,7 +132,9 @@
 
       bar.append('text')
        .classed('value',true)
-      ;
+       .attr('id', function(d){
+          return d[datasetName] +"-value";
+       });
 
       d3.selectAll('.chartHolder')
         .append("g")

@@ -46,7 +46,4 @@ module.exports = function (grunt){
 
   grunt.registerTask('default', ['uglify', 'jshint']);//, 'cssmin', 'less']); 
   
-  // grunt.registerTask("default", function (){
-  //   grunt.log.writeln("hello, " + grunt.config.get("person").firstname);
-  // });
 };

@@ -3,16 +3,16 @@
     <h2> {{DatasetCtrl.description}}</h2>
     <h4> Chartable Data </h4>
     <div ng-repeat= "field in DatasetCtrl.fields | filter: {graphicType: 'chartable'} ">
-      <p class="btn btn-default btn-data" ng-click="DatasetCtrl.selectField(field.name)"> {{field.properName}} </p>
+      <p class="btn btn-default btn-data" ng-click="DatasetCtrl.selectField(field.name)" id="{{DatasetCtrl.hyphenate(field.properName)}}"> {{field.properName}} </p>
     </div>
     <div ng-if="DatasetCtrl.summaryStatistics">
-      <div class= "btn btn-primary btn-data" ng-click="DatasetCtrl.sortBars()"> Sort </div>
+      <div class= "btn btn-primary btn-data" ng-click="DatasetCtrl.sortBars()" id="sort"> Sort </div>
       <div class="summary">
-        <div> <strong> Variable:</strong> {{DatasetCtrl.fieldName}}</div>
-        <div> <strong> Count:</strong> {{DatasetCtrl.fieldCount | number: 0}}</div>
-        <div> <strong> Average: </strong>{{DatasetCtrl.fieldAverage | number: 1}}</div>
-        <div> <strong> Maximum: </strong>{{DatasetCtrl.fieldMax | number: 0}}</div>
-        <div> <strong> Mininum: </strong>{{DatasetCtrl.fieldMin | number: 0}}</div>
+        <div> <strong> Variable:</strong><span id = "fieldName">  {{DatasetCtrl.fieldName}}</span></div>
+        <div> <strong> Count:</strong><span id = "fieldCount">  {{DatasetCtrl.fieldCount | number: 0}}</span></div>
+        <div> <strong> Average: </strong><span id = "fieldAverage"> {{DatasetCtrl.fieldAverage | number: 1}}</span></div>
+        <div> <strong> Maximum: </strong><span id = "fieldMax"> {{DatasetCtrl.fieldMax | number: 0}}</span></div>
+        <div> <strong> Mininum: </strong><span id = "fieldMin"> {{DatasetCtrl.fieldMin | number: 0}}</span></div>
       </div>
     </div>
   </div>

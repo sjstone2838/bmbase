@@ -8,4 +8,9 @@ To run locally:
 To push local changes into production
   1. Before making changes, run [grunt watch] in local directory. Any time a controller or service .js file is saved, Grunt will overwrite the dist/bmbase.min.js, which is the only JS dependency in index.html. The file dist/bmbase.min.js is a minified, concatenated version of all .js files in the /controllers and /services directories. 
   2. [grunt] default includes [grunt jshint] (js linting, aka error checking) and [grunt uglify] (minification and concatenation of .js files)
+
+To run tests
+  1. Make sure Protractor and Webdriver-manager are installed locally
+  2. To start a Selenium server, run [webdriver-manager start]. The server will be viewable at http://localhost:4444/wd/hub
+  3. Run [protractor tests/conf.js]
   
